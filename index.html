@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Whale Radio · Tune in to the singing sea</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Whale Radio: a map of real ocean recordings. Tune in to blue whales, fin whales, humpbacks, orcas and Antarctic seals, with Auntie CeCe as your guide.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🐋%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div id="map"></div>
+<header id="title">
+  <h1>🐋 Whale Radio</h1>
+  <p>Tune in to the singing sea. Real hydrophone recordings, with Auntie CeCe as your guide.</p>
+  <div class="row">
+    <label>Ocean layer <select id="layer">
+      <option value="none">None</option>
+      <option value="sst" selected>Sea temperature</option>
+      <option value="anom">Temperature anomaly</option>
+    </select></label>
+    <label>Voice <select id="lang"></select></label>
+    <button id="next" class="ghost" title="Tune to the next station">📻 Next station</button>
+    <button id="creditsBtn" class="ghost">Credits</button>
+  </div>
+  <p class="k" id="layerNote"></p>
+</header>
+<aside id="panel" aria-live="polite"></aside>
+<div id="scope"><canvas id="spec" width="600" height="120"></canvas><div class="k" id="nowPlaying">Pick a station to start listening</div></div>
+<div id="credits" class="modal" hidden><div class="box">
+  <button class="x" id="closeCredits" aria-label="Close">✕</button>
+  <h2>Credits & licenses</h2>
+  <div id="creditList"></div>
+</div></div>
+<audio id="player" preload="none"></audio>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="stations.js"></script>
+<script src="app.js"></script>
+</body></html>
